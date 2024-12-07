@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeWar Questions</title>
+  </head>
+  <body>
+    <script>
+      //       You are given the heads of two sorted linked lists list1 and list2.
+      // Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+      // Return the head of the merged linked list.
+      array1 = [1, 2, 5, 7];
+      array2 = [2, 4, 3, 8];
+      const combineAndSort = function (arr1, arr2) {
+        arr1.forEach((element) => {
+          arr2.splice(1, 0, element);
+        });
+        arr2.sort((a, b) => a - b);
+        console.log(arr2);
+      };
+      combineAndSort(array1, array2);
+
+      const fruits = ["apple", "orange", "pear"];
+
+      for (let fruit of fruits) {
+        console.log(fruit);
+      }
+
+      // // Sum of Array Elements: Write a function that takes an array of numbers as input and returns the sum of all the elements in the array.
+
+      function sumNumbers(numbers) {
+        let sum = 0;
+        numbers.forEach(function (number) {
+          sum = sum + number;
+        });
+        return sum;
+      }
+
+      console.log(sumNumbers([15, 5, 10]));
+      console.log(sumNumbers([12, 10, 13, 19]));
+
+      // // Find Maximum Value in Array: Write a function that finds and returns the maximum value in an array of numbers.
+
+      function findMaxValue(arr) {
+        if (arr.length === 0) {
+          return null;
+        }
+        let max = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] > max) {
+            max = arr[i];
+          }
+        }
+        return max;
+      }
+      // // Reverse a String: Write a function that takes a string as input and returns the reverse of the string. For example, inputting "hello" should return "olleh".
+
+      function reverseString(str) {
+        return str.split("").reverse().join("");
+        test = str.split("");
+        backwardsArray - test.reverse();
+        newArray - backwardsArray.join();
+        return newArray;
+      }
+
+      console.log(reverseString("hello"));
+
+      // // Count Occurrences in Array: Write a function that takes an array of elements and a specific element to count. The function should return the number of times the specified element appears in the array.
+
+      function countOccurences(arr, element) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === element) {
+            count++;
+          }
+        }
+        return count;
+      }
+      console.log(countOccurences([10, 20, 30, 40, 50]));
+
+      // //Write a code to get an array of names from given array of users.
+
+      const users = [
+        {
+          id: 1,
+          name: "Jack",
+          isActive: true,
+        },
+        {
+          id: 2,
+          name: "John",
+          isActive: true,
+        },
+        {
+          id: 3,
+          name: "Mike",
+          isActive: false,
+        },
+      ];
+
+      const names = [];
+      for (let i = 0; i < users.length; i++) {
+        names.push(users[i].name);
+      }
+
+      console.log("names", names);
+
+      // // Suppose we want to write a function that calculates the sum of all numbers from 1 up to (and including) some numbers n.
+
+      function addUpTo(n) {
+        let total = 0;
+        for (let i = 1; i <= n; i++) {
+          total += i;
+        }
+        return total;
+      }
+      console.log(addUpTo(6));
+
+      // // Write a function with a for loop and a nested for loop inside of that.
+      // function compareBugs(bugArray) {
+      for (let i = 0; i < bugArray.length; i++) {
+        // Outer loop
+        for (let j = i + 1; j < bugArray.length; j++) {
+          // Inner loop
+          console.log(`Comparing: ${bugArray[i]} vs ${bugArray[j]}`);
+        }
+      }
+
+      // Solve this Pascal Triangle
+      function pascals(numRows) {
+        if (numRows === 0) return [];
+        if (numRows === 1) return [[1]];
+        let result = [];
+        for (let row = 1; row <= numRows; row++) {
+          let arr = [];
+          for (let col = 0; col < row; col++) {
+            if (col === 0 || col === row - 1) {
+              arr.push(1);
+            } else {
+              arr.push(result[row - 2][col - 1] + result[row - 2][col]);
+            }
+          }
+          result.push(arr);
+        }
+        return result;
+      }
+      console.log(pascals(5));
+
+      const PascTrianlge = function (rows) {
+        let pasc = [[1], [1, 1]];
+        for (let i = 2; i < rows; i++) {
+          let prevRow = pasc[i - 1];
+          pasc.push([1, 1]);
+          for (let currIndex = 1; currIndex < prevRow.length; currIndex++) {
+            pasc[i].splice(
+              currIndex,
+              0,
+              prevRow[currIndex - 1] + prevRow[currIndex]
+            );
+          }
+        }
+        return pasc;
+      };
+      console.log(PascTrianlge(6));
+    </script>
+  </body>
+</html>
